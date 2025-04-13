@@ -1,0 +1,38 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyd
+
+# Virtual environments
+venv/
+.venv/
+
+# Environment files
+.env
+
+# System files
+.DS_Store
+Thumbs.db
+
+# IDE/editor folders
+.vscode/
+.idea/
+
+# Logs and temp files
+*.log
+*.tmp
+*.bak
+
+# FAISS vector database (optional)
+faiss_index/
+
+# Docker and build artifacts
+*.dockerignore
+Dockerfile
+
+# Miscellaneous
+*.swp
+
+ruby

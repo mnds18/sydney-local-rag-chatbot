@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌏 Sydney Explorer Chatbot | Powered by Mrig AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Global Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(to bottom right, #d6f0ff, #f9f9f9);
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Animated Ocean Waves */
+    .ocean {
+      position: fixed;
+      width: 200%;
+      height: 150px;
+      bottom: 0;
+      left: 0;
+      background: #d6f0ff;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .wave {
+      position: absolute;
+      width: 200%;
+      height: 100px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/3/3d/Wave_pattern.png') repeat-x;
+      background-size: contain;
+      bottom: 0;
+      opacity: 0.5;
+      animation: wave-animation 10s linear infinite;
+    }
+
+    .wave:nth-child(2) {
+      bottom: 20px;
+      animation: wave-animation 18s linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes wave-animation {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Header */
+    header {
+      width: 100%;
+      max-width: 1200px;
+      background: linear-gradient(90deg, #0056b3, #0077cc);
+      color: white;
+      padding: 20px 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    /* Chatbox */
+    #chatbox {
+      width: 90%;
+      max-width: 900px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+      padding: 20px;
+      overflow-y: auto;
+      height: 500px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Messages */
+    .message {
+      padding: 12px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      max-width: 70%;
+      font-size: 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .user {
+      background: #d0f0fd;
+      align-self: flex-end;
+      margin-left: auto;
+      text-align: right;
+      color: #0056b3;
+    }
+
+    .bot {
+      background: #f2f2f2;
+      align-self: flex-start;
+      margin-right: auto;
+      text-align: left;
+      color: #333;
+    }
+
+    /* Input Area */
+    #input-area {
+      width: 90%;
+      max-width: 900px;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+    }
+
+    #userInput {
+      flex: 1;
+      padding: 15px;
+      border: 2px solid #00bfff;
+      border-radius: 10px;
+      font-size: 1rem;
+      background: #f9f9f9;
+    }
+
+    #sendBtn {
+      padding: 15px 25px;
+      background: linear-gradient(135deg, #00bfff, #1e90ff);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    #sendBtn:hover {
+      background: linear-gradient(135deg, #1e90ff, #00bfff);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: auto;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #555;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Animated Ocean Background -->
+  <div class="ocean">
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+
+  <header>
+    <h1>🌏 Sydney Explorer Chatbot</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d2/Sydney_Opera_House_-_Logo.svg" alt="Sydney Logo">
+  </header>
+
+  <div id="chatbox">
+    <!-- Messages appear here -->
+  </div>
+
+  <div id="input-area">
+    <input type="text" id="userInput" placeholder="Ask about Sydney's beaches, events, attractions..." autofocus />
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <footer>
+    Powered by Mrig AI | Sydney | 2025 🌟
+  </footer>
+
+  <script>
+    const chatbox = document.getElementById('chatbox');
+    const userInput = document.getElementById('userInput');
+    const sendBtn = document.getElementById('sendBtn');
+
+    function appendMessage(text, senderClass) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('message', senderClass);
+      messageDiv.textContent = text;
+      chatbox.appendChild(messageDiv);
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function sendMessage() {
+      const question = userInput.value.trim();
+      if (question === "") return;
+
+      appendMessage(question, 'user');
+      userInput.value = '';
+
+      fetch('/chatbot', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ question: question })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.response) {
+          appendMessage(data.response, 'bot');
+        } else if (data.error) {
+          appendMessage("Error: " + data.error, 'bot');
+        }
+      })
+      .catch(error => {
+        appendMessage("Error: " + error.message, 'bot');
+      });
+    }
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keydown', function(event) {
+      if (event.key === 'Enter') {
+        sendMessage();
+      }
+    });
+  </script>
+
+</body>
+</html>
