@@ -1,3 +1,6 @@
+![Lint Status](https://github.com/yourusername/sydney-local-rag-chatbot/actions/workflows/python-lint.yml/badge.svg)
+
+
 <p align="center">
   <img src="https://img.shields.io/badge/Powered%20By-LangChain-blue" />
   <img src="https://img.shields.io/badge/Vectorstore-FAISS-green" />
