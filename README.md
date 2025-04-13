@@ -1,4 +1,4 @@
-![Lint Status](https://github.com/mrig18/sydney-local-rag-chatbot/actions/workflows/python-lint.yml/badge.svg)
+![Lint Status](https://github.com/mnds18/sydney-local-rag-chatbot/actions/workflows/python-lint.yml/badge.svg)
 
 
 <p align="center">
@@ -47,3 +47,57 @@ It reads **PDF** and **Word documents**, builds a **vectorstore**, retrieves ans
 ├── pdf_files/            # Your source PDFs
 ├── docx_files/           # Your source DOCX files
 ├── README.md             # You are here :)
+
+
+🔑 Environment Variables
+Variable	Purpose
+OLLAMA_HOST	Ollama server URL (default: http://localhost:11434)
+Ensure Ollama is installed locally with required models downloaded!
+
+🖥️ Demo Screenshots
+
+🏗️ Setup Instructions
+
+# 1. Clone repo
+git clone https://github.com/yourusername/sydney-local-rag-chatbot.git
+cd sydney-local-rag-chatbot
+
+# 2. (Optional) Create virtual environment
+python -m venv venv
+source venv/bin/activate  # (Linux/Mac)
+venv\Scripts\activate     # (Windows)
+
+# 3. Install required packages
+pip install -r requirements.txt
+
+# 4. Run the app
+python local_chatbot.py
+
+
+Access chatbot at: http://127.0.0.1:5000
+
+🛡️ License
+This project is licensed under the MIT License.
+
+🤝 Contributing
+Contributions are welcome! 🚀
+
+Please create an issue before submitting pull requests.
+Ensure you follow basic Python code style guidelines (flake8).
+
+📢 Acknowledgments
+FAISS (Facebook AI Similarity Search)
+
+Sentence Transformers (HuggingFace)
+
+Ollama - Local LLM Runtime
+
+Flask Framework
+
+🔥 Connect
+If you're passionate about the intersection of
+Data Science × AI Engineering × Product Thinking — let's connect!
+Always building smart, offline-first AI products! 🚀
+
+LinkedIn : https://www.linkedin.com/in/mrigendranath/
+
