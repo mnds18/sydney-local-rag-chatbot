@@ -1,4 +1,4 @@
-![Lint Status](https://github.com/yourusername/sydney-local-rag-chatbot/actions/workflows/python-lint.yml/badge.svg)
+![Lint Status](https://github.com/mrig18/sydney-local-rag-chatbot/actions/workflows/python-lint.yml/badge.svg)
 
 
 <p align="center">
