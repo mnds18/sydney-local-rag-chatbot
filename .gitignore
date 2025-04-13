@@ -1,38 +1,47 @@
-# Python cache files
+# ------------------------
+# Python
+# ------------------------
+
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.pyd
-
-# Virtual environments
-venv/
-.venv/
-
-# Environment files
-.env
-
-# System files
-.DS_Store
-Thumbs.db
-
-# IDE/editor folders
-.vscode/
-.idea/
-
-# Logs and temp files
+*.pdb
+*.so
+*.egg
+*.egg-info/
+.eggs/
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.manifest
+*.spec
+pip-wheel-metadata/
 *.log
-*.tmp
-*.bak
 
-# FAISS vector database (optional)
-faiss_index/
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+.pytest_cache/
 
-# Docker and build artifacts
-*.dockerignore
-Dockerfile
+# ------------------------
+# VS Code
+# ------------------------
 
-# Miscellaneous
-*.swp
+.vscode/
+.history/
+
+# ----------------
+
 
 ruby
