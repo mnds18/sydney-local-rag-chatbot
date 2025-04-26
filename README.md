@@ -32,6 +32,10 @@ It reads **PDF** and **Word documents**, builds a **vectorstore**, retrieves ans
 
 <br />
 
+
+## 📊 Demo screenshot
+![Demo](demo/local_chatbot.jpg)
+
 ---
 
 ## 📂 Project Structure
